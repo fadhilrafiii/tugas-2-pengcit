@@ -12,11 +12,11 @@ function result = GenerateH(type, P, Q, D0, n)
     D = sqrt(U.^2 + V.^2);
     
     h = zeros(size(D));
-    if (type == "ILPF") % Untuk Ideal Low Pass Filter
+    if (type == "Ideal") % Untuk Ideal Low Pass Filter
         h = D <= D0;
-    elseif (type == "BLPF") % Untuk Butterworth Low Pass Filter
+    elseif (type == "Butterworth") % Untuk Butterworth Low Pass Filter
         h = (1 + (D/D0).^(2*n)).^-1;
-    elseif (type == "GLPF") % Untuk Gaussian Low Pass Filter
+    elseif (type == "Gaussian") % Untuk Gaussian Low Pass Filter
         h = exp(-(D.^2)./(2*(D0^2)));
     end
     

@@ -1,5 +1,5 @@
 image = imread("res\1\1.jpg");
 
-%LowPassFilter(image, 'ILPF');
-LowPassFilter(image, 'BLPF', 2)
-%LowPassFilter(image, 'GLPF');
+%LowPassFilter(image, 'Ideal');
+LowPassFilter(image, 'Butterworth', 2)
+%LowPassFilter(image, 'Gaussian');
