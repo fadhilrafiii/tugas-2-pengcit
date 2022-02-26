@@ -1,5 +1,5 @@
-image = imread("res\1\7.jpg");
+image = imread("res/1/3.jpg");
 
-LowPassFilter(image, 'Ideal', 100);
-%LowPassFilter(image, 'Butterworth', 0, 2)
-%LowPassFilter(image, 'Gaussian');
+LowPassFilter(image, 'Ideal');
+LowPassFilter(image, 'Butterworth', 0, 2)
+LowPassFilter(image, 'Gaussian');
