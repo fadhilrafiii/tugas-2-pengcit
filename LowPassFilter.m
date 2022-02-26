@@ -3,7 +3,7 @@ function LowPassFilter(img, type, n)
     img = im2double(img);
 
     % Mengambil ukuran gambar
-    [M, N, K] = size(img);
+    [M, N] = size(img);
     
     % Menambahkan padding pada image, secara default k = 2
     P = 2 * M;
