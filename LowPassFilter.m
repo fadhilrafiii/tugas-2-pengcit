@@ -3,7 +3,7 @@ function LowPassFilter(img, type, n)
     img = im2double(img);
 
     % Mengambil ukuran gambar
-    [M, N] = size(img);
+    [M, N, K] = size(img);
     
     % Menambahkan padding pada image, secara default k = 2
     P = 2 * M;
@@ -20,15 +20,15 @@ function LowPassFilter(img, type, n)
 
     % Mengalikan nilai gambar dengan nilai penapis dan memotong kembali ke
     % ukuran semula
-    lpfImage = H.*transformPadImage;
+    lpfImage = ProductHF(H, transformPadImage);
     result = real(ifft2(lpfImage));
-    result = result(1:M, 1:N);
+    result = result(1:M, 1:N, :);
     
     % Menampilkan gambar hasil tapisan
     figure, imshow(result);
     
     % Menampilkan spektrum Fourier
-    centeredOrgImg = fftshift(transformPadImage); % Menggeser titik asal transform ke tengah frequency rectangle
-    spectrum = log(1 + abs(centeredOrgImg));
-    figure, imshow(spectrum, []);
+    % centeredOrgImg = fftshift(transformPadImage); % Menggeser titik asal transform ke tengah frequency rectangle
+    % spectrum = log(1 + abs(centeredOrgImg));
+    % figure, imshow(spectrum, []);
 end

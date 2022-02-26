@@ -1,4 +1,4 @@
-image = imread("res\1\1.jpg");
+image = imread("res\1\3.jpg");
 
 HighPassFilter(image, 'Ideal');
 HighPassFilter(image, 'Butterworth', 2)

@@ -1,4 +1,4 @@
-image = imread("res\1\1.jpg");
+image = imread("res\1\3.jpg");
 
 %LowPassFilter(image, 'Ideal');
 LowPassFilter(image, 'Butterworth', 2)
