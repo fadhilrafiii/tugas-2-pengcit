@@ -3,7 +3,8 @@ function result = GenerateImagePad(image)
 
     P = 2 * M;
     Q = 2 * N;
-
+    
+    % Inisialisasi gambar hitam dengan lebar dan tinggi 2x lipat
     temp = zeros(P, Q, K);
     for i = 1:M
         for j = 1:N

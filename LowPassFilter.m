@@ -1,20 +1,23 @@
-function LowPassFilter(img, type, n)
+function LowPassFilter(img, type, D0, n)
     figure, imshow(img);
     img = im2double(img);
 
     % Mengambil ukuran gambar
-    [M, N] = size(img);
+    [M, N, K] = size(img);
     
     % Menambahkan padding pada image, secara default k = 2
     P = 2 * M;
     Q = 2 * N;
     padImage = GenerateImagePad(img);
     transformPadImage = fft2(padImage);
-    % Membangkitkan fungsi penapis dengan cutoff frequency 0.05 * width
-    % Secara default digunakan nilai 0.05
-    D0 = 0.05 * P;
-    if (~exist('n', 'var') && type ~= "Butterworth") %default value n kalau tipe bukan BLPF
-      n = 1;
+    
+    % Membangkitkan fungsi penapis 
+    if (~exist('D0', 'var') || D0 <= 0)
+        D0 = 0.05 * P; % Secara default digunakan nilai 0.05 dari lebar img
+    end
+
+    if (~exist('n', 'var') && type ~= "Butterworth")
+      n = 1;  %default value n kalau tipe bukan BLPF
     end
     H = GenerateH(type, P, Q, D0, n);
 
