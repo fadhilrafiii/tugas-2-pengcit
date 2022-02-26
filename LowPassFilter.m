@@ -1,4 +1,4 @@
-function [result, spectrum] = LowPassFilter(img, type, n)
+function LowPassFilter(img, type, n)
     figure, imshow(img);
     img = im2double(img);
 
