@@ -16,6 +16,5 @@ function h = GenerateH(type, P, Q, D0, n)
         h = 1/(1 + (D/D0)^(2*n));
     elseif (type == "GLPF")
         h = exp(-(D.^2)./(2*(D0^2)));
-        disp('test')
     end
 end
