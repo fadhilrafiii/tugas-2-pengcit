@@ -1,13 +1,13 @@
 I = imread('res2/9.png'); % Baca citra
 I = I(:,:,1);
-% figure, imshow(I);
-% title('[BEFORE] Image');
+figure, imshow(I);
+title('[BEFORE] Image');
 % Terapkan Fourier Transform
 F = fft2(double(I));
 F1 = fftshift(F); % Pusatkan FFT
 % Tampilkan magnitute spektrum Fourier
-% figure, imagesc(100*log(abs(F1)+1)); colormap(gray);
-% title('[BEFORE] magnitude spectrum');
+figure, imagesc(100*log(abs(F1)+1)); colormap(gray);
+title('[BEFORE] magnitude spectrum');
 
 % Hapus derau periodic
 ranges_arr = [
