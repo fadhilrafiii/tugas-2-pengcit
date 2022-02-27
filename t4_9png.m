@@ -11,20 +11,19 @@ title('[BEFORE] magnitude spectrum');
 
 % Hapus derau periodic
 ranges_arr = [
-%     50 60 170 190;
-%     70 80 200 210;
-%     175 190 50 60;
+    50 60 170 190;
+    70 80 200 210;
+    175 190 50 60;
     175 190 180 190;
-%     175 190 295 310;
-%     195 210 70 80;
+    175 190 295 310;
+    195 210 70 80;
     195 210 200 210;
-%     195 210 325 340;
-%     305 315 170 190;
-%     325 335 200 210;
+    195 210 325 340;
+    305 315 170 190;
+    325 335 200 210;
 ];
 for range_idx = 1:size(ranges_arr, 1)
     ranges = ranges_arr(range_idx,:);
-    disp(ranges);
     for j = ranges(1):ranges(2)
         for i = ranges(3):ranges(4)
             F1(i, j) = 0;
