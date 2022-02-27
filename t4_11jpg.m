@@ -1,7 +1,6 @@
 I = imread('res2/11.jpg'); % Baca citra
 I = I(:,:,1);
-figure, imshow(I);
-title('[BEFORE] Image');
+figure, imshow(I), title('[BEFORE] Image');
 % Terapkan Fourier Transform
 F = fft2(double(I));
 F1 = fftshift(F); % Pusatkan FFT
@@ -31,5 +30,4 @@ title('[AFTER] magnitude spectrum');
 
 % Kembalikan ke ranah spasial
 J = real(ifft2(ifftshift(F1)));
-figure, imshow(J,[]);
-title('[AFTER] Image');
+figure, imshow(J,[]), title('[AFTER] Image');
