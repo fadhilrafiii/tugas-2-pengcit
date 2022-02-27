@@ -25,16 +25,4 @@ function result = HighBoost(img, a, type, D0, n)
     lpfImage = ProductHF((a - 1) + Hhp, transformPadImage);
     result = real(ifft2(lpfImage));
     result = result(1:M, 1:N, :);
-
-%     G = repmat(1/25, [5 5]);
-%     lowpass = uint8(convn(double(img), double(G), 'same'));
-%     highpass = img - lowpass;
-%     result = (a - 1)*img + highpass;
-end
-
-function result = HighBoostSpatial(img, a)
-    G = repmat(1/25, [5 5]);
-    lowpass = uint8(convn(double(img), double(G), 'same'));
-    highpass = img - lowpass;
-    result = (a - 1)*img + highpass;
 end
