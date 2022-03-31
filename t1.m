@@ -1,5 +1,12 @@
-image = imread("res\1\7.jpg");
+image = imread("res\1\8.jpg");
 
-LowPassFilter(image, 'Ideal', 100);
+%Jedge = Gaussian(image);
+%Jedge = Laplace(image);
+Jedge = LoG(image);
+%Jedge = Sobel(image);
+%Jedge = Prewitt(image);
+%Jedge = Robert(image);
+%Jedge = Canny(image);
+figure, imshow(Jedge);
 %LowPassFilter(image, 'Butterworth', 0, 2)
 %LowPassFilter(image, 'Gaussian');
