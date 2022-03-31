@@ -1,4 +1,4 @@
-function HighPassFilter(img, type, D0, n)
+function result = HighPassFilter(img, type, D0, n)
     figure, imshow(img);
     img = im2double(img);
 
