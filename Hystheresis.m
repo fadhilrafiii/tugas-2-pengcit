@@ -7,7 +7,6 @@ elseif nargin == 3
     conn = 4;    
 end
 
-
 if T1 < T2    % T1 and T2 reversed - swap values
     tmp = T1;
     T1 = T2;
