@@ -9,10 +9,10 @@ function result = vertical_segment(I)
         v = hist(i);
         if zero_mode && v > th
             zero_mode = 0;
-            result = [result, i];
+            result = [result, i - 1];
         elseif ~zero_mode && v <= th
             zero_mode = 1;
-            result = [result, i - 1];
+            result = [result, i];
         end
     end
 end

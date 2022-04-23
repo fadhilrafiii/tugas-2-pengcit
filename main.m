@@ -25,6 +25,7 @@ figure; imshow(BW);
 I_sobel = sobel(BW, "horizontal");
 % figure; imshow(I_sobel);
 segment_line_indices = vertical_segment(BW);
+segment_line_indices = segment_characters(segment_line_indices);
 
 [row_size, col_size,] = size(I);
 % figure; imshow(I);
