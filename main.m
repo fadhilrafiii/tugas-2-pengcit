@@ -16,13 +16,18 @@ I = I_segmented;
 %% Character segmentation
 
 BW = otsu_binarize(I);
+
+% TODO: Check if it's really needed.
+BW = bwareaopen(BW, floor(numel(I)/100));
+
 figure; imshow(BW);
+
 I_sobel = sobel(BW, "horizontal");
-figure; imshow(I_sobel);
+% figure; imshow(I_sobel);
 segment_line_indices = vertical_segment(BW);
 
 [row_size, col_size,] = size(I);
-figure; imshow(I);
+% figure; imshow(I);
 hold on;
 for i = 1:length(segment_line_indices)
     line_index = segment_line_indices(i);
