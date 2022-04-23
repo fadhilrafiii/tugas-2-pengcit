@@ -1,14 +1,16 @@
 %% Removing upper and lower bounds of license plates
 
-I = imread("image-001.jpg");
+I = imread("dataset/3.jpg");
+if should_invert(otsu_binarize(I))
+    I = imcomplement(I);
+end
 I_binarized = otsu_binarize(I);
-figure; imshow(I_binarized);
+% figure; imshow(I_binarized);
 I_sobel = sobel(I_binarized, "horizontal");
-figure; imshow(I_sobel);
-% TODO: Invert bw if background is not black
+% figure; imshow(I_sobel);
 [upper_bound, lower_bound] = horizontal_bound_segment(I_sobel);
 I_segmented = I(upper_bound:lower_bound, :, :);
-figure; imshow(I_segmented);
+% figure; imshow(I_segmented);
 
 I = I_segmented;
 
@@ -18,7 +20,7 @@ I = I_segmented;
 BW = otsu_binarize(I);
 
 % TODO: Check if it's really needed.
-BW = bwareaopen(BW, floor(numel(I)/100));
+BW = bwareaopen(BW, floor(numel(I)/150));
 
 figure; imshow(BW);
 

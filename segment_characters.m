@@ -41,11 +41,13 @@ function result = segment_characters(segment_line_indices)
                 half
                 sizes(i+1:end)
             ];
+
+            mid = segment_line_indices(i*2)-half;
             
             segment_line_indices = [
                 segment_line_indices(1:i*2 - 1)
-                (segment_line_indices(i*2)-half)
-                (segment_line_indices(i*2)-half)
+                mid
+                mid
                 segment_line_indices(i*2:end)
             ];
 
