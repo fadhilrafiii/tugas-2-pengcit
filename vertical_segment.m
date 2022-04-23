@@ -12,7 +12,7 @@ function result = vertical_segment(I)
             result = [result, i];
         elseif ~zero_mode && v <= th
             zero_mode = 1;
-            result = [result, i];
+            result = [result, i - 1];
         end
     end
 end

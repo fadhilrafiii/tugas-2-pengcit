@@ -18,12 +18,11 @@ I = I_segmented;
 BW = otsu_binarize(I);
 figure; imshow(BW);
 I_sobel = sobel(BW, "horizontal");
-figure; imshow(I);
+figure; imshow(I_sobel);
 segment_line_indices = vertical_segment(BW);
 
 [row_size, col_size,] = size(I);
-figure; imshow(I_sobel);
-axis on;
+figure; imshow(I);
 hold on;
 for i = 1:length(segment_line_indices)
     line_index = segment_line_indices(i);
