@@ -1,6 +1,6 @@
 %% Removing upper and lower bounds of license plates
 
-I = imread("dataset/3.jpg");
+I = imread("dataset/1.jpg");
 if should_invert(otsu_binarize(I))
     I = imcomplement(I);
 end
@@ -30,6 +30,7 @@ segment_line_indices = vertical_segment(BW);
 segment_line_indices = segment_characters(segment_line_indices);
 
 [row_size, col_size,] = size(I);
+
 % figure; imshow(I);
 hold on;
 for i = 1:length(segment_line_indices)
@@ -41,3 +42,21 @@ for i = 1:length(segment_line_indices)
     );
 end
 hold off;
+plate_char_images = char_separation(BW, segment_line_indices);
+
+[num_char, ~] = size(plate_char_images);
+
+str = '';
+for i=1:num_char
+    plate_char_images{i} = trim_char(plate_char_images{i});
+    str = strcat(str, string(get_char(plate_char_images{i})));
+end
+
+disp(str);
+
+
+
+
+
+
+
