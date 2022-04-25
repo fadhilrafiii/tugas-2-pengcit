@@ -53,10 +53,3 @@ for i=1:num_char
 end
 
 disp(str);
-
-
-
-
-
-
-

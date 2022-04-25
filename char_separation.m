@@ -1,10 +1,10 @@
 function result = char_separation(img, segment_idx)
-    disp(size(segment_idx))
+%     disp(size(segment_idx))
     % Get red lines index columns
     i = 1;
 
     [~, n] = size(segment_idx);
-    chars = cell(n/2,1);
+    chars = cell(ceil(n/2),1);
     j = 1;
     while(i < n)
         segment_idx(1, i)
